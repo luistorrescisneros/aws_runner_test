@@ -1,4 +1,4 @@
 # aws_runner_test
 Testing a sefl-hosted runner on AWS
 
-Lass uns auf unseren AWS-self-hosted-Runner nochmal anstoßen :beers: 
+Lass uns auf unseren AWS-self-hosted-Runner nochmal anstoßen :wine: 
