@@ -14,5 +14,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Run an echo
+      run : echo "My Message"
     - name: Build the Docker image
       run: docker build --tag my-image-name:test .
