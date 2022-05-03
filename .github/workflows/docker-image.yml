@@ -10,7 +10,7 @@ jobs:
 
   build:
     env:
-      tag: ${{ github.event.head_commit }}
+      tag: ${{ github.run_id }}
 
     runs-on: self-hosted
 
