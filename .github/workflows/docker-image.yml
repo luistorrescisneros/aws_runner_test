@@ -17,14 +17,18 @@ jobs:
 
     steps:
 
+    # Checkout code on self-hosted runner
     - uses: actions/checkout@v3
-    - name: Run an echo
-      run : echo "My Message"
+    
+    # Build Docker-Image
     - name: Build the Docker image (now)
       run : docker build --tag ${{ secrets.JF_ARTIFACTORY_REGISTRY }}/aws-windows-docker-local/my-image-windows-2:${{ env.tag }} .
+    
+    # Run Docker-Image
     - name: Run image
       run : docker run --rm ${{ secrets.JF_ARTIFACTORY_REGISTRY }}/aws-windows-docker-local/my-image-windows-2:${{ env.tag }}
       
+    # Login to JFrog-Registry
     - name: Login to JFrog-Registry
       uses: docker/login-action@v1 
       with:
@@ -32,6 +36,7 @@ jobs:
         username: ${{ secrets.JF_ARTIFACTORY_USER }}
         password: ${{ secrets.JF_ARTIFACTORY_PASSWORD }}
   
+    # Push docker image
     - name: Push Docker-Image
       run: docker push ${{ secrets.JF_ARTIFACTORY_REGISTRY }}/aws-windows-docker-local/my-image-windows-2:${{ env.tag }}
     
