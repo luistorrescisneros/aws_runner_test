@@ -33,9 +33,9 @@ jobs:
         password: ${{ secrets.JF_ARTIFACTORY_PASSWORD }}
   
     - name: Push Docker-Image
-      run: docker push ${{ secrets.JF_ARTIFACTORY_REGISTRY }}/aws-windows-docker-local/my-image-windows:${{ env.tag }}
+      run: docker push ${{ secrets.JF_ARTIFACTORY_REGISTRY }}/aws-windows-docker-local/my-image-windows-2:${{ env.tag }}
     
     # Delete Docker-Image
     - name: Delete Docker-Image 
       run: |
-        docker rmi ${{ secrets.JF_ARTIFACTORY_REGISTRY }}/aws-windows-docker-local/my-image-windows:${{ env.tag }}
+        docker rmi ${{ secrets.JF_ARTIFACTORY_REGISTRY }}/aws-windows-docker-local/my-image-windows-2:${{ env.tag }}
